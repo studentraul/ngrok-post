@@ -4,6 +4,8 @@
 
 Este projeto foi usado como exemplo para o artigo (link acima) sobre o [ngrok](https://ngrok.com/)
 
+![Photo from APP](./media/main.png)
+
 ## Rodando Local
 
 Abra dois terminais, um para a pasta `client` e outro para a pasta `server`.
