@@ -2,7 +2,6 @@ const $loadUsers = document.querySelector(".main__actions button");
 
 /* 
 Aqui, geramos as linhas da tabela (tbody > tr) dinamicamente usando template literals
-
 Caso você estranhe a sintaxe que eu usei pra pegar os atributos, sugiro procurar por 
 "Object destructuring", já tem bastante artigo em português explicando sobre.
 */
@@ -35,11 +34,14 @@ const appendUsersOnTable = arrayOfUserRows => {
 
 // Carregando os dados da nossa api
 const loadUsersFromApi = () => {
-  const apiUrl = "http://localhost:3000/api/v1/users";
+  const apiUrl = "http://localhost:3000/api/v1/users"; // Local
+  // const apiUrl = "https://255aebda.ngrok.io/api/v1/users";
+
   fetch(apiUrl) //Usamos o Fetch para fazer a chamada http
     .then(res => res.json()) //precisamos dessa linha para pegar o resultado da api em JSON
     .then(users => users.map(generateUserRow)) //Iteramos pelo array de usuários, gerando um array de Rows baseado nos atributos da resposta
-    .then(appendUsersOnTable); //
+    .then(appendUsersOnTable)
+    .catch(console.error);
 };
 
 $loadUsers.addEventListener("click", loadUsersFromApi);
